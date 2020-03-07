@@ -4,18 +4,17 @@
 \subsection{Lecture 1}
 \subsubsection{Rational points on Curves}
 
-The starting point is Falting's Theorem, which was originally Mordell's conjecture.
+The starting point is Falting's Theorem, which was originally known as Mordell's conjecture.
 
 \begin{thm}[Falting's, 1983]
-Suppose $[K \colon \Q] < \infty$.
-$X$ a `nice'\footnote{smooth, projective, geometrically integral} curve of genus $g$ over $K$. If $g>1$, then $X(K)$ is finite. 
+Suppose $[K \colon \Q] < \infty$, and let $X$ be a `nice'\footnote{smooth, projective, geometrically integral} curve of genus $g$ over $K$. If $g>1$, then $X(K)$ is finite. 
 \end{thm}
 
 
 There are several proofs now. The first was Falting's proof in 1983 based on Arakelov methods. The next was by Vojta 1991 and its variant (phrased in more elementary terms via Diophantine approximation) by Bomberi. But now there is a proof by Lawrence-Venkatesh in 2018 via $p$-adic period maps. 
 
 
-For integral points, the parallel to Falting's Theorem is Siegel's Theorem. Let $[K \colon \Q] < \infty$. Let $\O= \O_{K,S}= \{ x \in K \colon \nu(x) \geq 0 \text{for all } \nu \in S \}$, where $S$ is a finite set of places, including all the archimedean places. Let $U:= X \setminus Z$, where $X$ is a nice curve of genus $g$ and $Z$ is a nonempty 0-dimensional subscheme. Now $\chi(U):= (2-2g) - r$, where $r= \#Z(\overline{K})$ and $\chi$ is the Euler characteristic. Suppose $\cU$ is a finite type $\O$-scheme with $\cU_K= U$. If $\chi(U)< 0$. The condition that $\chi(U)<0$ is sometimes phrased as that $U$ is hyperbolic [over $\C$, $\widetilde{U} \simeq b$]. 
+For integral points, the parallel to Falting's Theorem is Siegel's Theorem. Let $[K \colon \Q] < \infty$. Let $\O= \O_{K,S}= \{ x \in K \colon \nu(x) \geq 0 \text{ for all } \nu \in S \}$, where $S$ is a finite set of places, including all the archimedean places. Let $U:= X \setminus Z$, where $X$ is a nice curve of genus $g$ and $Z$ is a nonempty 0-dimensional subscheme. Now $\chi(U):= (2-2g) - r$, where $r= \#Z(\overline{K})$ and $\chi$ is the Euler characteristic. Suppose $\cU$ is a finite type $\O$-scheme with $\cU_K= U$. If $\chi(U)< 0$. The condition that $\chi(U)<0$ is sometimes phrased as that $U$ is hyperbolic [over $\C$, $\widetilde{U} \simeq b$]. 
 
 
 \begin{thm}[Siegel's Theorem]
@@ -23,7 +22,7 @@ If $\chi(U)< 0$, then $\cU(\O)$ is finite.
 \end{thm}
 
 
-There is a proof, obviously, by Siegel. But there are proofs by Baker-Coates (1970) when either $g \leq 1$ or when $U$ is $y^2= f(x)$ in $\A^2$ and Lawrence-Venkatesh (2018) when $I= \P^1 \setminus \{0,1,\infty\}$. 
+There is a proof, obviously, by Siegel. But there are also proofs by Baker-Coates (1970) when either $g \leq 1$ or when $U$ is $y^2= f(x)$ in $\A^2$, and Lawrence-Venkatesh (2018) when $U= \P^1 \setminus \{0,1,\infty\}$. 
 
 
 \begin{ex}
@@ -55,7 +54,7 @@ The problem with nearly all of these methods is that they are not effective. The
 
 	\[
 	\begin{tikzcd}
-	K \arrow[dash,swap]{d}{[K\,:\,\Q]=\,\dim_\Q K} & \p \\
+	K \arrow[dash,swap]{d}{[K\,:\,\Q]=\,\dim_\Q K} & \p \arrow[dash]{d} \\
 	\Q & p 
 	\end{tikzcd}
 	\]
