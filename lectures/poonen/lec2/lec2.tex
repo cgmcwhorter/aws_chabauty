@@ -1,0 +1,226 @@
+% !TEX root = ../../../main/aws_chabauty.tex
+\newpage
+\subsection{Lecture 2}
+\subsubsection{Selmer Groups}
+
+	\[
+	0 \ma{} J[p] \ma{} J \ma{p} J \ma{} 0
+	\]
+	\[
+	J(K) \ma{p} J(K) \ma{} H^1(K, J[p])
+	\]
+	\[
+	\dfrac{J(K)}{pJ(K)} \hookrightarrow H^1(K,J[p])
+	\]
+But the right side is an infinite dimensional $\F_p$-vector space if $\dim J \geq 0$. 
+
+	\[
+	\begin{tikzcd}
+	\dfrac{J(K)}{pJ(K)} \arrow[hook]{r} & \sel_p J \arrow[draw=none]{r}[sloped,auto=false]{\subseteq} & H^1(K,J[p]) \arrow{d}{\beta} \\
+	\prod_\nu \dfrac{J(K_\nu)}{pJ(K_\nu)} \arrow[hook]{rr}{\alpha} & & \prod_\nu H^1(K_\nu,J[p])
+	\end{tikzcd}
+	\]
+$\sel_p J:= \{ \xi \in H^1(K,J[p]) \colon \beta(\xi) \in \im \alpha \}$. This group is conjecturally finite and computable. 
+
+
+Similarly,
+	\[
+	\dfrac{J(K)}{p^nJ(K)} \hookrightarrow \sel_{p^n} J \subset H^1(K,J[p^n])
+	\]
+By taking inverse limits
+	\[
+	\hat{J(K)} \hookrightarrow \sel_{\Z_p} J \subset H^1(K,T)
+	\]
+then by inverting $p$
+	\[
+	\hat{J(K)}[\frac{1}{p}] \hookrightarrow \sel_{\Q_p} J \subset H^1(K,V)
+	\]
+Then we have
+	\[
+	0 \ma{} \dfrac{J(K)}{pJ(K)} \ma{} \sel_p J \ma{} \sha[p] \ma{} 0
+	\]
+	
+	\[
+	0 \ma{} 
+	\] %%%%%%%%%%%%%%%%%%%
+
+
+	\[
+	\begin{tikzcd}
+	X(K) \arrow{d} \arrow{r} & X(K_\p) \arrow{d} \\
+	J(K) \arrow{r} \arrow{d} & J(K_\p) \arrow{r}{\log} \arrow{d} & \lie J_{K_\p} \\
+	\widehat{J(K)}[\frac{1}{p}] \arrow{r} \arrow{d} & \widehat{J(K_\p)}[\frac{1}{p}] \arrow{ur}{\rotatebox{45}{$\sim$}} \\
+	\sel_{\Q_p} J \arrow{d} \\
+	H^1(K,V) \arrow{r} & H^1(K_\p,V)
+	\end{tikzcd}
+	\]
+
+
+
+% Bloch-Kato Selmer Groups
+\subsubsection{Bloch-Kato Selmer Group}
+
+We examine the Block-Kato Selmer group in terms of $V$ and not $J$. In the general setting (local Galois representations), let $V$ be a finite dimensional $\Q_p$-vector space with continuous action---$G_{K_\nu}$-action. 
+	\[
+	D_{\cris}(V):= (B_{\cris} \otimes_{\Q_p} V)^{G_{K_\nu}}
+	\]
+where $B_{\cris}$ is a certain ring equipped with a $G_{K_\nu}$-action. 
+
+
+\begin{rem}
+$\dim_{K_\nu} D_{\cris}(V) \leq \dim_{\Q_p} V$
+\end{rem}s
+
+
+\begin{dfn}[Crystalline]
+We call $V$ crystalline if equality holds. 
+\end{dfn}
+
+
+\begin{rem}
+For $\nu$ and an abelian variety $J/K_\nu$, then $J$ has good reduction if and only if its $\Q_p$ Tate module $V$ is unramified if $\nu \nmid p$ and crystalline if $\nu \mid p$. 
+\end{rem}
+
+
+Now suppose $\xi \in H^1(K,V)$. Let
+	\[
+	0 \ma{} V \ma{} E \ma{} \Q_p \ma{} 0
+	\]
+be the corresponding extension. Call $\xi$ crystalline if $E$ is crystalline. 
+	\[
+	H_f^1(K_\nu,V):= \{ \text{crystalline classes in } H^1(K_\nu,V) \}
+	\]
+
+
+\begin{rem}
+$\p \mid p$. If $J$ is an abelian variety with good reduction at $\p$, and $V$ is a $\Q_p$ Tate module, then the iamge of
+	\[
+	\hat{J(K_\p)}[\frac{1}{p}] \to H^1(K_\p,V)
+	\]
+equals $H_f^1(K_\p,V)$. If $\p \nmid p$, then $H^1(K_\p,V= 0$.
+\end{rem}
+
+
+
+% Global Galois Representations
+\subsubsection{Global Galois Representations}
+
+Let $V$ be a finite dimensional $\Q_p$-vector space with continuous $G_K$-action. Given $\xi \in H^1(K,V)$. Let $\xi_\nu$ be its image in $H^1(K_\ni,V)$. The Bloch-Kato Selmer group of $v$ is the group
+	\[
+	H_f^1(K,V):= \{ \xi \in H^1(K,V) \colon \xi_\nu \text{ is crystalline for all } \nu \mid p \}
+	\]
+
+
+\begin{rem}
+If $J$ is an abelian variety over $K$ and $V$ is a $\Q_p$ Tate module, then $H_f^1(K,V)= \sel_{\Q_p} J$. 
+\end{rem}
+
+
+	\[
+	\begin{tikzcd}
+	X(K) \arrow{d} \arrow{r} & X(K_\p) \arrow{d} \\
+	J(K) \arrow{r} \arrow{d} & J(K_\p) \arrow{r}{\log} \arrow{d} & \lie J_{K_\p} \\
+	\widehat{J(K)}[\frac{1}{p}] \arrow{r} \arrow{d} & \widehat{J(K_\p)}[\frac{1}{p}] \arrow{ur}{\rotatebox{45}{$\sim$}} \arrow{d} \\
+	\sel_{\Q_p} J \arrow{d}= H_f^1(K,V) \arrow{r} &  H_f^1(K_\p,V) \arrow{d} \\
+	H^1(K,V) \arrow{r} & H^1(K_\p,V)
+	\end{tikzcd}
+	\]
+
+
+Algebraic de Rham Cohomology: $H_\dr^1(X):= \H^1(X,\Omega^0)$ with Hodge filtration $\Fil^0$, where $\H$ is hypercohomology. Define also $H_1^\dr(X):=$ dual of $H_\dr^1$ with dual filtration. 
+
+
+	\[
+	\begin{tikzcd}
+	X(K) \arrow{d} \arrow{r} & X(K_\p) \arrow{d} \\
+	J(K) \arrow{r} \arrow{d} & J(K_\p) \arrow{r}{\log} \arrow{d} & \lie J_{K_\p} \\
+	\widehat{J(K)}[\frac{1}{p}] \arrow{r} \arrow{d} & \widehat{J(K_\p)}[\frac{1}{p}] \arrow{ur}{\rotatebox{45}{$\sim$}} \arrow{d} \\
+	\sel_{\Q_p} J \arrow{d}= H_f^1(K,V) \arrow{r} &  H_f^1(K_\p,V) \arrow{d} \arrow{r}{\log, \sim} &  H_1^\dr(K_{K_\p})/\Fil^0 \\
+	H^1(K,V) \arrow{r} & H^1(K_\p,V)
+	\end{tikzcd}
+	\]
+
+
+We get 
+	\[
+	\begin{tikzcd}
+	X(K) \arrow{r} \arrow{d} & X(K_\p) \arrow{d} \arrow{dr}{p\text{-adic integrals}} \\
+	H_f^1(K,V) \arrow{r} &  H_f^1(K_\p,V) \arrow{r}{\sim} & H_1^\dr(X_{K_\p})/\Fil^0
+	\end{tikzcd}
+	\]
+
+
+
+% Lower Central Series
+\subsubsection{Lower Central Series}
+
+Let $G$ be a (topological) group. For $A, B \leq g$, define $(A,B):= \ov{\langle aba^{-1}b^{-1} \colon a \in A, b \in B \rangle}$. Now define the lower central series by
+	\[
+	\begin{aligned}
+	C^1G&:= G \\
+	C^2G&:= (G,C^1G)= (G,G) \\
+	C^3G&:= (G,C^2G) \\
+	&\phantom{=}\vdots
+	\end{aligned}
+	\]
+Finally, define $G_n:= G/C^{n+1}G$. This is a $n$-step nilpotent group. 
+
+
+\begin{ex}
+$G_1= G/(G,G)=: G^{\ab}$, the abelianization of $G$, i.e. the largest abelian quotient. 
+\end{ex}
+
+
+This was just Group Theory. Now let's apply this to the fundamental group of the curve.
+
+
+
+% Abelianized Fundamental Group
+\subsubsection{Abelianized Fundamental Group}
+
+Given $M$ a connected real manifold, $m \in M$, we get $\pi_1(M,m)^\ab \simeq H_1(M,\Z)$, where $\pi_1$ is the fundamental group. What is the algebraic version? Given $X$, a `nice' curve of genus $g$ curve over $K$, $x \in X(K)$, we obtain
+	\[
+	\pi_1^\et(X_{\ov{K}}, x)^\ab \simeq H_1^\et(X_{\ov{K}}, \hat{\Z})
+	\]
+But we have maps
+	\[
+	\pi_1^\et(X_{\ov{K}},x)_1 \ma{\sim} \pi_1^\et(X_{\ov{K}}, x)^\ab \simeq H_1^\et(X_{\ov{K}}, \hat{\Z}) \sra H_1^\et(X_{\ov{K}}, \Z_p) \subset H_1^\et(X_{\ov{K}}, \Q_p)=: V= \cV(\Q_p)
+	\]
+
+
+Kim obtains a generalization
+	\[
+	\pi_1^\et(X_{\ov{K}},x) \ma{} V_n= \cV_n(\Q_p)
+	\]
+where $\cV_n$ is some unipotent algebraic group, and
+	\[
+	\begin{tikzcd}
+	X(K) \arrow{d} \arrow{r} & X(K_\p) \arrow{d} \arrow{dr}{p\text{-adic iterated integrals}} \\
+	H_f^1(K,V_n) \arrow{r} & H_f^1(K_\p,V_n) \arrow{r}{\sim} & \pi_1^\dr(X_{K_\p},x)_n/\Fil^0
+	\end{tikzcd}
+	\]
+and morphisms of $\Q_p$-varieties
+	\[
+	\sel^{[n]} \ma{} J^{[n]} \ma{} L^{[n]}
+	\]
+which gives you the $\Q_p$ points of $\pi_1^\dr(X_{K_\p},x)_n/\Fil^0$. 
+
+
+\begin{thm}[Kim]
+If for some $n \geq 1$, $\dim \sel^{[n]} < \dim J^{[n]}$, then $X(K)$ is contained in the set of zeros of some nonzero locally analytic functions on the local points of the curve, which are given by some iterated integrals. Therefore, $X(K)$ is finite.
+\end{thm}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
