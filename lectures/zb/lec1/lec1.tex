@@ -85,8 +85,30 @@ Then the integrals vanish on $X \cap J_\tors$. The nice thing here is that there
 then we can bound $\# \cap J_\tors \leq ---$
 \end{thm}
 
-% IMAGE 2
 
+	\begin{figure}[!ht]
+	\centering
+	\includegraphics[width=0.3\textwidth]{../images/im2.png}
+	\end{figure}
+	
+%	\begin{figure}[!ht]
+%	\centering
+%	\begin{tikzpicture}
+%	\begin{axis}[
+%	hide axis,
+%	xmin=0, xmax=5,
+%	ymin=0, ymax= 5
+%	%rotate=45
+%	]
+%	\foreach \s in {-2,-1,0,1,2,3,4} {%
+%		\addplot[domain=0:3,samples=50,black,thick] ({\x},{2-2*\x-\s}); 
+%		\addplot[domain=0:3,samples=50,black,thick] ({\x},{2*\x+\s-4});
+%	}
+%	\end{axis}
+%	\end{tikzpicture}
+%	\end{figure}
+	
+	
 	\[
 	\begin{tikzcd}
 	X(\Q) \arrow[hook]{r} & X(\Q_p) \arrow[hook]{d} \arrow{dr} \\
@@ -113,7 +135,10 @@ Local Analysis:
 
 We can compute $\int_P^Q \omega$ locally and analyze with a Newton Polygon.
 
-% IMAGE 3
+	\begin{figure}[!ht]
+	\centering
+	\includegraphics[width=0.3\textwidth]{../images/im3.png}
+	\end{figure}
 
 $[QI:= \{P \in X(\Q_p)$ such that $P \equiv Q \mod p \} \simeq p\Z_p$, the $p$-adic disc. Where the map is $p \mapsto u(P)$, where $u$ is a uniformizer at $\tilde{Q}$, a lift of $Q$.
 
