@@ -1,0 +1,224 @@
+% !TEX root = ../../../main/aws_chabauty.tex
+\newpage
+\subsection{Lecture 2}
+
+Last time we gave an algorithm to compute Coleman integrals between points in different residue disks on hyperelliptic curves, i.e. curves ``analytic continuation along Frobenius.'' To do this, we wrote down an action of Frobenius $\omega_L$ residue disks and got $\phi^* w_i= dh_i + \sum M_{ji} \omega_j$, then wrote a system to produce 
+	\[
+	\begin{pmatrix}
+	\vdots \\
+	\int_P^Q \omega_i \\
+	\vdots
+	\end{pmatrix}=
+	(M^t - I)^{-1} 
+	\begin{pmatrix}
+	\vdots \\
+	h_i(P) - h_i(Q) - \int_P^{\pi(P)} \omega_i - \int_{\phi(Q)}^Q \omega_i \\
+	\vdots
+	\end{pmatrix}
+	\]
+
+
+How do we do this for more general curves? We use Tuffman's algorithm: let $X/\Q$ be a `nice' curve of genus $g$ with a plane model $Q(x,y)= y^{d_x} + Q_{d_x-1} y^{d_x-1} + \cdots + Q_0= 0$ such that $Q(x,y)$ is irreducible, $Q_i(x) \in \Z[x]$. Let $p$ be a good prime for $X$.
+
+
+\begin{enumerate}[1.]
+\item Consider the map $x: X \to \P^1$ and remove the ramification locus $r(x)$, analogous to removing Weierstrass points in Kedlaya's algorithm. 
+\item Choose a lift of Frobenius with $x \mapsto x^p$. Compute the image of $y$ through Hensel lifting. 
+\item Compute a basis of $H_{\dr}^1(X)$ using an integral basis of $\Q(X)$ over $\Q[X]$, $\Q[\frac{1}{x}]$.
+\item Compute the action of Frobenius on differentials and reduce pole orders using relations in cohomology via Louder's fibration algorithm---Tuffman uses an integral basis of $\Q(X)$. 
+\end{enumerate}
+
+
+Then $\phi^*\omega_i= dh_i + \sum M_{ji} \omega_j$. Use this to give a lih system to produce values
+	\[
+	\begin{pmatrix}
+	\vdots \\
+	\int_P^Q \omega_i \\
+	\vdots
+	\end{pmatrix}
+	\]
+
+
+\begin{ex}[B-Tuffman]
+Can compute Coleman integrals on a non-hyperelliptic genus 55 curve to show its Jacobian has rank $\geq 1$.
+\end{ex}
+
+
+Let $X/\Q$ be a `nice' curve of genus $g$. By work of Coleman (1982) and Coleman-deShali (1988), we have a theory of iterated $p$-adic integrals on $X$. What are these? There are iterated path integrals:
+	\[
+	\int_P^Q \eta_n \cdots \eta_1:= \int_0^1 \int_0^{t_1} \cdots \int_0^{t_{n-1}} f_n(t_n) \cdots f_1(t_1) \;dt_n \; \cdots \; dt_1
+	\]
+We will often suppress writing the iterated integral and instead write a single integral. In our computations, we will focus on the case $n=2$ (double Coleman integrals):
+	\[
+	\int_P^Q \eta_2 \eta_1:= \int_P^Q \eta_2 \int_P^R \eta_1
+	\]
+These integrals play an important role in nonabelian Chabauty.
+
+
+How do we compute these integrals? We want to apply an algorithm for computing the action of Frobenius on $p$-adic cohomology, e.g. Kedlaya or Tuffman, to produce
+	\[
+	\phi^* \omega_i= dh_i + \sum M_{ji} \omega_j
+	\]
+Observe that the algorithm of $M^{\otimes n}$ are not 1, and reduce the computation of $n$-fold iterated integrals to $(n-1)$-fold iterated integrals. 
+
+
+Here are some useful properties of iterated Coleman integrals:
+
+
+\begin{prop}
+Let $\omega_{i_1}, \ldots, \omega_{i_n}$ be forms of the second kind, holomorphic at $P,Q \in X(\Qp)$. Then
+\begin{enumerate}[(i)]
+\item $\int_P^Q \omega_{i_1} \cdots \omega_{i_n}= 0$
+\item
+	\[
+	\sum_{\text{all perm}} \int_P^Q \omega_{\sigma(t_1)} \cdots \omega_{\sigma(t_n)}= \prod_{j=1}^n \int_P^Q \omega_j
+	\]
+\item $\int_P^Q \omega_{i_1} \cdots \omega_{i_n}= (-1)^n \int_Q^P \omega_{i_n} \cdots \omega_{i_1}$
+\item If $P,P', Q \in X(\Qp)$, then
+	\[
+	\int_P^Q \omega_{i_1} \cdots \omega_{i_n}= \sum_{j=0}^n \int_P^Q \omega_i \cdots \omega_j \int_P^{P'} \omega_{i_{j+1}} \cdots \omega_{i_n}
+	\]
+This let's us break up a path.
+\end{enumerate}
+\end{prop}
+
+
+So this gives the analogue of additivity in endpoints for double integrals (have $P,P',Q \in X(\Qp)$).
+	\[
+	\int_P^Q \omega_i \omega_k= \int_P^{P'} \omega_i \omega_k + \int_{P'}^Q \omega_i \omega_k + \int_{Q'}^Q \omega_i \omega_k + \int_P^{P'} \omega_k \int_{P'}^Q \omega_i + \int_{P'}^{Q'} \omega_k + \int_{Q'}^Q \omega_i
+	\]
+Let $P'= \phi(P)$, $Q'= \phi(Q)$, here is how we compute double Coleman integrals. 
+	\[
+	\begin{aligned}
+	\int_{\phi(P)}^{\phi(Q)} \omega_i \omega_k&= \int_P^Q \phi^*(\omega_i) \phi^*(\omega_k) \\
+	&= \int_P^Q (df_1 + \sum M_{ji} \omega_j X \;df_k  \sum M_{jk} \omega_j ) \\
+	&= c_{ik} + \int_P^Q \sum M_{ji} \omega_j \sum M_{jk} \omega_j
+	\end{aligned}
+	\]
+This gives us
+	\[
+	\begin{pmatrix}
+	\vdots \\
+	\int_P^Q \omega_i \omega_k \\
+	\vdots
+	\end{pmatrix}=
+	(I-M^{t \otimes ?})^{-1}
+	\begin{pmatrix}
+	c_{ik} - \int_{\phi(P)}^{\phi(Q)} \omega_i \omega_k - \int_P^Q \omega_i \int_{\phi(P)}^P \omega_i - \int_Q^{\phi(Q)} \omega_i - \int_{\phi(P)}^{\phi(Q)} \omega_k + \int_{\phi(Q)}^Q \omega_i \omega_k
+	\end{pmatrix}
+	\]
+
+
+As an application (preview), let $E/\Z$ be the minimal regular model of an elliptic curve. Let $X= \mathcal{E} \setminus \O$. Let $\omega_0= \dfrac{dx}{2y+a_1x+a_3}$, $\omega_1= x\omega_0$. Let $v$ be a tangential base point of $\O$ at an integral 2-torsion point. Let $p$ be a prime of good reduction. Suppose that $\mathcal{E}$ has analytic rank 1 and Tamagawa product 1. Let $\log(z)= \int_b^t \omega_0$, $D_2(z)= \int_b^t \omega_0 \omega_1$.
+
+
+\begin{thm}[Kim,B-Kedlaya-Kim]
+Suppose $P$ is a point of infinite order in $\mathcal{E}(\Z)$. Then $X(\Q) \subseteq \mathcal{E}(\Z)$ is in the zero set of
+	\[
+	f(z)= (\log P)^2 D_2(z) - (\log z)^2 D_2(P)
+	\]
+\end{thm}
+
+
+Kim shows that this $D_2$ is related to $p$-adic heights on $Z$.
+
+
+
+% $p$-adic heights on Jacobians of curves
+\subsubsection{$p$-adic heights on Jacobians of curves}
+
+$p$-adic heights are a natural source of bilinear forms on global points. They allow us to generate some of our linear techniques from Chabauty-Coleman.
+
+
+\begin{rem}
+Some $p$-adic heights are in $p$-adic BSD/$p$-adic Gross-Zagier.
+\end{rem}
+
+
+Let $X/\Q$ be a `nice' curve of genus $g>1$. Let $p$ be a good prime. Fix a branch of $\log_p: \Qp^\times \to \Qp$. Also fix an idelic class character $\chi: A_\Q^*/\Q^* \to \Qp$. A splitting of the Hodge filtration on $H_\dr^1(X/\Qp)$ such that the basis is isotropic with respect to the cup product. Fixing a splitting of the Hodge filtration corresponds to fixing a subspace $W= \ker s$ of $H^1_\dr(X)$ corresponding to the space $H^0(X,\Omega^1)$, i.e. $H^1_\dr(X,\Qp) \simeq H^0(X,\Omega^1) \oplus W$
+
+
+\begin{dfn}[Coleman-Gross, 1989]
+The cyclotomic $p$-adic height pairing is a symmetric bi-additive pairing
+	\[
+	\div^0(X) \times \div^0(X) \to \Qp
+	\]
+given by $(D_1,D_2) \mapsto h(D_1,D_2)$ for $D_1,D_2 \in \div^0(X)$ with divergent support such that
+
+\begin{enumerate}[(i)]
+\item $k(D_1,D_2)= \sum_{\text{height}} h_v (D_1,D_2)= h_P(D_1,D_2) + \sum_{\text{supp}} h_i (D_1,D_2)$. $\int_{D_2} \omega_{D_1} + \sum m_l \log_P (l)$, where $m_l \in \Q$ is an intersection multiplicity. 
+\item For $\beta \in \Q(X)^*$, we have $h(D,\div(\beta))=0$, so this gives a symmetric, bilinear pairing $\sigma(\Q) \times J(Q) \to \Qp$.
+\end{enumerate}
+\end{dfn}
+ 
+
+
+% Local height at $P$
+\subsubsection{Local height at $P$}
+
+We need to construct a normalized differential $\omega_D$ with respect to choice of $\omega$. Let $T(\Qp)$ be the differential of the third kind: simple poles and integer residues. We have a residue divisor homomorphism
+	\[
+	\res: T(\Qp) \to \div^0(X)
+	\]
+given by $\omega \mapsto \res(\omega) = \sum_P (\res_P \omega) P$. This induces
+	\[
+	0 \ma{} H^0(X_{\Qp}, \Omega^1) \ma{} T(\Qp) \ma{\res} \div^0(X) \ma{} 0
+	\]
+Want $\omega_0$ will be a certain 3rd kind of differential with $\res(\omega_{D_i})= D_i$. 
+
+
+\begin{ex}
+Let $X$ be a hyperelliptic curve $y^2= f(x)$, and $D_1= (P) - (Q)$, with $P,Q$ nonsingular Weierstrass points. Then
+	\[
+	\omega= \dfrac{dx}{2y} \left( \dfrac{y+y(P)}{x-x(P)} - \dfrac{y+y(Q)}{x-x(Q)} \right)
+	\]
+has $\res \div D_1$  a simple pole at $P,Q$ residues $+1,-1$, respectively. However, adding any holomorphic $\eta$ to $\omega$ and taking $\res(\eta+\omega)= D_1$. So we must take care of this. Let $T_l(\Qp)$ be the log differentials $\dfrac{df}{P}$, $f \in \Qp(X)^*$. We have 	\[
+	0 \ma{} H^0(X_{\Qp}, \Omega^1) \ma{} T(\Qp)/T_l(\Q_p) \ma{} J(\Q_p) \ma{} 0
+	\]
+\end{ex}
+
+
+\begin{prop}
+There is a canonical homomorphism $\Psi: T(\Q_p)/T_l(\Qp) \to H_\dr^1(X)$ such that
+
+\begin{enumerate}[(i)]
+\item $\Psi$ is the identity on holomorphic differentials.
+\item $\Psi$ sends third kind with $\res(v_0)= D$ and $\psi(\omega_0) \in W$.
+\end{enumerate}
+\end{prop}
+
+
+\begin{rem}
+If $p$ is ordinary, we can take $W$ to be the unit root subspace for Frobenius. 
+\end{rem}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
