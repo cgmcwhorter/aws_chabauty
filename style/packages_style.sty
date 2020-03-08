@@ -2,13 +2,13 @@
 % Basic Packages
 % -------------------
 \usepackage{
-	amsmath,
-	amsthm,
-	amssymb,
-	enumerate,
-	geometry,
-	relsize,		% Scaling
-	stmaryrd		% Power Series Brackets
+	amsmath,			% Math Environments
+	amsthm,			% Theorem Environments
+	amssymb,			% Extended Symbols
+	enumerate,		% Enumerate Environments
+	etoolbox,			% Define Boolean
+	relsize,			% Scaling
+	stmaryrd			% Power Series Brackets
 }
 \usepackage[usenames,dvipsnames]{xcolor}
 \definecolor{ArzBlue}{RGB}{0,51,102}
@@ -114,5 +114,16 @@
   	sorting  	= nyt,       		% sorts by (name, year, title)
   	style  	= alphabetic 	% citations look like [Har77]
 ]{biblatex}
-\addbibresource{../packages/aws_iwasawa.bib}
+\addbibresource{../packages/aws_chabauty.bib}
+
+
+% -------------------
+% Note Only Compile
+% -------------------
+\newbool{noteonly}
+
+
+
+
+
 

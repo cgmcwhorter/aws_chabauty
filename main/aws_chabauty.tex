@@ -1,7 +1,12 @@
 \documentclass[11pt,letterpaper,twoside]{article}
+\usepackage[tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in]{geometry}
 \usepackage{../style/packages_style}
 \usepackage{../style/commands}
+\setbool{noteonly}{false}
 
+% -------------------
+% Content
+% -------------------
 \begin{document}
 
 % Cover Photo
@@ -42,80 +47,82 @@
 \input{../lectures/edixhoven/lec1/lec1}
 
 
-%% -------------------
-%% Course/Project Outlines
-%% -------------------
-%\newpage
-%\thispagestyle{empty}
-%\part{Course/Project Outlines \& Lecture Notes}
-%\newpage
-%
-%%\setcounter{section}{1}
-%
-%% Poonen
-%\addtocounter{section}{1}
-%\addcontentsline{toc}{section}{\protect\numberline{\thesection} Bjorn Poonen}
-%\setcounter{subsection}{1}
-%\addcontentsline{toc}{subsection}{\protect\numberline{\thesubsection} Lecture Notes}
-%\includepdf[pages=-,scale=1,pagecommand={\thispagestyle{normal}}]{../notes/poonen/p-adic_approach.pdf}
-%
-%% Zureick-Brown
-%\addtocounter{section}{1}
-%\addcontentsline{toc}{section}{\protect\numberline{\thesection} David Zureick-Brown}
-%\setcounter{subsection}{1}
-%\addcontentsline{toc}{subsection}{\protect\numberline{\thesubsection} Course \& Project Outline}
-%\includepdf[pages=-,scale=1,pagecommand={\thispagestyle{normal}}]{../notes/zb/2020ZureickBrownOutline.pdf}
-%\addtocounter{subsection}{1}
-%\addcontentsline{toc}{subsection}{\protect\numberline{\thesubsection} Lecture Notes}
-%\includepdf[pages=-,scale=1,pagecommand={\thispagestyle{normal}}]{../notes/zb/2020ZureickBrownNotes.pdf}
-%\addtocounter{subsection}{1}
-%\addcontentsline{toc}{subsection}{\protect\numberline{\thesubsection} Project Description}
-%\includepdf[pages=-,scale=1,pagecommand={\thispagestyle{normal}}]{../notes/zb/2020ZureickBrownProjectNotes.pdf}
-%
-%% Kim
-%\addtocounter{section}{1}
-%\addcontentsline{toc}{section}{\protect\numberline{\thesection} Minhyong Kim}
-%\setcounter{subsection}{1}
-%\addcontentsline{toc}{subsection}{\protect\numberline{\thesubsection} Course \& Project Outline}
-%\includepdf[pages=-,scale=1,pagecommand={\thispagestyle{normal}}]{../notes/kim/2020KimOutline.pdf}
-%\addtocounter{subsection}{1}
-%\addcontentsline{toc}{subsection}{\protect\numberline{\thesubsection} Project Description}
-%\includepdf[pages=-,scale=1,pagecommand={\thispagestyle{normal}}]{../notes/kim/2020KimProject.pdf}
-%\addtocounter{subsection}{1}
-%\addcontentsline{toc}{subsection}{\protect\numberline{\thesubsection} Lecture 1}
-%\includepdf[pages=-,scale=1,pagecommand={\thispagestyle{normal}}]{../notes/kim/2020KimNotes1.pdf}
-%\addtocounter{subsection}{1}
-%\addcontentsline{toc}{subsection}{\protect\numberline{\thesubsection} Lecture 2}
-%\includepdf[pages=-,scale=1,pagecommand={\thispagestyle{normal}}]{../notes/kim/2020KimNotes2.pdf}
-%\addtocounter{subsection}{1}
-%\addcontentsline{toc}{subsection}{\protect\numberline{\thesubsection} Lecture 3}
-%\includepdf[pages=-,scale=1,pagecommand={\thispagestyle{normal}}]{../notes/kim/2020KimNotes3.pdf}
-%\addtocounter{subsection}{1}
-%\addcontentsline{toc}{subsection}{\protect\numberline{\thesubsection} Lecture 4}
-%\includepdf[pages=-,scale=1,pagecommand={\thispagestyle{normal}}]{../notes/kim/2020KimNotes4.pdf}
-%
-%% Balakrishnan
-%\addtocounter{section}{1}
-%\addcontentsline{toc}{section}{\protect\numberline{\thesection} Jennifer Balakrishnan}
-%\setcounter{subsection}{1}
-%\addcontentsline{toc}{subsection}{\protect\numberline{\thesubsection} Course \& Project Outline}
-%\includepdf[pages=-,scale=1,pagecommand={\thispagestyle{normal}}]{../notes/balakrishnan/2020BalakrishnanOutline.pdf}
-%\addtocounter{subsection}{1}
-%\addcontentsline{toc}{subsection}{\protect\numberline{\thesubsection} Lecture Notes \& Project Descriptions (with J. Steffen M\"uller}
-%\includepdf[pages=-]{../notes/balakrishnan/2020BalakrishnanMuellerNotes.pdf}
-%
-%% Edixhoven
-%\addtocounter{section}{1}
-%\addcontentsline{toc}{section}{\protect\numberline{\thesection} Bas Edixhoven}
-%\setcounter{subsection}{1}
-%\addcontentsline{toc}{subsection}{\protect\numberline{\thesubsection}  Course \& Project Outline}
-%\includepdf[pages=-,scale=1,pagecommand={\thispagestyle{normal}}]{../notes/edixhoven/2020EdixhovenOutline.pdf}
-%\addtocounter{subsection}{1}
-%\addcontentsline{toc}{subsection}{\protect\numberline{\thesubsection} Lecture Notes (Prepreint of Edixhoven and Lido)}
-%\includepdf[pages=-,scale=1,pagecommand={\thispagestyle{normal}}]{../notes/edixhoven/2020EdixhovenProject.pdf}
-%\addtocounter{subsection}{1}
-%\addcontentsline{toc}{subsection}{\protect\numberline{\thesubsection} Project Description}
-%\includepdf[pages=-,scale=1,pagecommand={\thispagestyle{normal}}]{../notes/edixhoven/1910-10752.pdf}
+% -------------------
+% Course/Project Outlines
+% -------------------
+\ifbool{noteonly}{}{%
+\newpage
+\thispagestyle{empty}
+\part{Course/Project Outlines \& Lecture Notes}
+\newpage
+
+%\setcounter{section}{1}
+
+% Poonen
+\addtocounter{section}{1}
+\addcontentsline{toc}{section}{\protect\numberline{\thesection} Bjorn Poonen}
+\setcounter{subsection}{1}
+\addcontentsline{toc}{subsection}{\protect\numberline{\thesubsection} Lecture Notes}
+\includepdf[pages=-,scale=1,pagecommand={\thispagestyle{normal}}]{../notes/poonen/p-adic_approach.pdf}
+
+% Zureick-Brown
+\addtocounter{section}{1}
+\addcontentsline{toc}{section}{\protect\numberline{\thesection} David Zureick-Brown}
+\setcounter{subsection}{1}
+\addcontentsline{toc}{subsection}{\protect\numberline{\thesubsection} Course \& Project Outline}
+\includepdf[pages=-,scale=1,pagecommand={\thispagestyle{normal}}]{../notes/zb/2020ZureickBrownOutline.pdf}
+\addtocounter{subsection}{1}
+\addcontentsline{toc}{subsection}{\protect\numberline{\thesubsection} Lecture Notes}
+\includepdf[pages=-,scale=1,pagecommand={\thispagestyle{normal}}]{../notes/zb/2020ZureickBrownNotes.pdf}
+\addtocounter{subsection}{1}
+\addcontentsline{toc}{subsection}{\protect\numberline{\thesubsection} Project Description}
+\includepdf[pages=-,scale=1,pagecommand={\thispagestyle{normal}}]{../notes/zb/2020ZureickBrownProjectNotes.pdf}
+
+% Kim
+\addtocounter{section}{1}
+\addcontentsline{toc}{section}{\protect\numberline{\thesection} Minhyong Kim}
+\setcounter{subsection}{1}
+\addcontentsline{toc}{subsection}{\protect\numberline{\thesubsection} Course \& Project Outline}
+\includepdf[pages=-,scale=1,pagecommand={\thispagestyle{normal}}]{../notes/kim/2020KimOutline.pdf}
+\addtocounter{subsection}{1}
+\addcontentsline{toc}{subsection}{\protect\numberline{\thesubsection} Project Description}
+\includepdf[pages=-,scale=1,pagecommand={\thispagestyle{normal}}]{../notes/kim/2020KimProject.pdf}
+\addtocounter{subsection}{1}
+\addcontentsline{toc}{subsection}{\protect\numberline{\thesubsection} Lecture 1}
+\includepdf[pages=-,scale=1,pagecommand={\thispagestyle{normal}}]{../notes/kim/2020KimNotes1.pdf}
+\addtocounter{subsection}{1}
+\addcontentsline{toc}{subsection}{\protect\numberline{\thesubsection} Lecture 2}
+\includepdf[pages=-,scale=1,pagecommand={\thispagestyle{normal}}]{../notes/kim/2020KimNotes2.pdf}
+\addtocounter{subsection}{1}
+\addcontentsline{toc}{subsection}{\protect\numberline{\thesubsection} Lecture 3}
+\includepdf[pages=-,scale=1,pagecommand={\thispagestyle{normal}}]{../notes/kim/2020KimNotes3.pdf}
+\addtocounter{subsection}{1}
+\addcontentsline{toc}{subsection}{\protect\numberline{\thesubsection} Lecture 4}
+\includepdf[pages=-,scale=1,pagecommand={\thispagestyle{normal}}]{../notes/kim/2020KimNotes4.pdf}
+
+% Balakrishnan
+\addtocounter{section}{1}
+\addcontentsline{toc}{section}{\protect\numberline{\thesection} Jennifer Balakrishnan}
+\setcounter{subsection}{1}
+\addcontentsline{toc}{subsection}{\protect\numberline{\thesubsection} Course \& Project Outline}
+\includepdf[pages=-,scale=1,pagecommand={\thispagestyle{normal}}]{../notes/balakrishnan/2020BalakrishnanOutline.pdf}
+\addtocounter{subsection}{1}
+\addcontentsline{toc}{subsection}{\protect\numberline{\thesubsection} Lecture Notes \& Project Descriptions (with J. Steffen M\"uller}
+\includepdf[pages=-]{../notes/balakrishnan/2020BalakrishnanMuellerNotes.pdf}
+
+% Edixhoven
+\addtocounter{section}{1}
+\addcontentsline{toc}{section}{\protect\numberline{\thesection} Bas Edixhoven}
+\setcounter{subsection}{1}
+\addcontentsline{toc}{subsection}{\protect\numberline{\thesubsection}  Course \& Project Outline}
+\includepdf[pages=-,scale=1,pagecommand={\thispagestyle{normal}}]{../notes/edixhoven/2020EdixhovenOutline.pdf}
+\addtocounter{subsection}{1}
+\addcontentsline{toc}{subsection}{\protect\numberline{\thesubsection} Lecture Notes (Prepreint of Edixhoven and Lido)}
+\includepdf[pages=-,scale=1,pagecommand={\thispagestyle{normal}}]{../notes/edixhoven/2020EdixhovenProject.pdf}
+\addtocounter{subsection}{1}
+\addcontentsline{toc}{subsection}{\protect\numberline{\thesubsection} Project Description}
+\includepdf[pages=-,scale=1,pagecommand={\thispagestyle{normal}}]{../notes/edixhoven/1910-10752.pdf}
+}
 
 
 % -------------------
