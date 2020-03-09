@@ -55,9 +55,9 @@
 \DeclareMathOperator{\ord}{ord}
 \DeclareMathOperator{\trep}{Trep}
 \DeclareMathOperator{\res}{Res}
-
-\renewcommand{\div}{\text{Div}}
-
+\let\div\undefined
+\DeclareMathOperator{\div}{Div}
+\DeclareMathOperator{\abj}{AJ}
 
 
 % Special Commands
@@ -87,6 +87,11 @@
 
 \newcommand{\Qp}{\mathbb{Q}_p}
 \newcommand{\Qq}{\mathbb{Q}_q}
+
+\newcommand{\ds}{\displaystyle}
+
+\DeclarePairedDelimiter\ceil{\lceil}{\rceil}
+\DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
 
 
 \newcommand{\sra}{\twoheadrightarrow}
