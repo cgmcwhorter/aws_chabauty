@@ -224,7 +224,7 @@ We first integrate $\int_P^Q \omega$ for $\omega$ a 1-form of the second kind, w
 } \par\vspace{\baselineskip}
  
 
-We sketch Kedlaya's algorithm. Let $X$ be the curve $y^2= p(x)$. We work in an affine $Y \subset X$ given by defining Weierstrass points. Take $\phi$ to be $x \mapsto x^p$ and $y \mapsto y^p \sum_{j=0}^\infty \binom{1/2}{1} \left( \dfrac{p(x^p - p(x)^p}{y^{2p}} \right)^j$. Then we compute the action of $\phi$ on
+We sketch Kedlaya's algorithm. Let $X$ be the curve $y^2= p(x)$. We work in an affine $Y \subset X$ given by defining Weierstrass points. Take $\phi$ to be $x \mapsto x^p$ and $\ds y \mapsto y^p \sum_{j=0}^\infty \binom{1/2}{1} \left( \dfrac{p(x^p - p(x)^p}{y^{2p}} \right)^j$. Then we compute the action of $\phi$ on
 	\[
 	\begin{aligned}
 	\phi^*\left( \dfrac{x^i \;dx}{y} \right)&= \dfrac{x^{pi} \;d(x^p)}{\phi(y)} \\
@@ -234,39 +234,37 @@ We sketch Kedlaya's algorithm. Let $X$ be the curve $y^2= p(x)$. We work in an a
 	\]
 and reduce pole order of each resulting differential using relations in $H^1$. Denote the basis by $\{\omega_i\}_{i=0,\ldots,2g-1}$. Then Kedlaya's algorithm gives
 	\[
-	\phi^* \omega_i= dh_o + \sum_{j=0}^{2g-1} \mu_{ji} \omega_j
+	\phi^* \omega_i= dh_i + \sum_{j=0}^{2g-1} \mu_{ji} \omega_j
 	\]
 If we can compute $h_i$ and $M$, then
-	\[
+	\begin{equation} \label{eq:balk_star}
 	\begin{pmatrix}
 	\vdots \\
-	\int_P^Q \omega_i \\
+	\ds \int_P^Q \omega_i \\
 	\vdots
 	\end{pmatrix}=
 	(M^t - I)^{-1} 
 	\begin{pmatrix}
 	\vdots \\
-	h_i(P) - h_i(Q) - \int_P^{\pi(P)} \omega_i - \int_{\phi(Q)}^Q \omega_i \\
+	\ds h_i(P) - h_i(Q) - \int_P^{\phi(P)} \omega_i - \int_{\phi(Q)}^Q \omega_i \\
 	\vdots
-	\end{pmatrix}
-	\] % *
+	\end{pmatrix} 
+	\tag{*}
+	\end{equation}
 
 
-Finishing the 3-adic integrals on $y^2= x^5 - 2x^3 + x + 1/4$, we constructed $\eta= \beta \omega_0 - \alpha \omega_1$, where $\alpha,\beta$ are computed using (*). We want to compute $X(\Q_3)$. Compute power series expansions of
+Finishing the 3-adic integrals on $y^2= x^5 - 2x^3 + x + 1/4$, we constructed $\eta= \beta \omega_0 - \alpha \omega_1$, where $\alpha,\beta$ are computed using \eqref{eq:balk_star}. We want to compute $X(\Q_3)_1$. Note that $X(\F_3)= \{ \infty, (0,\pm1), (1,\pm 1),(2\pm1) \}$. We need to compute power series expansions of
 	\[
 	\left\{ \int_{(0,1/2)}^{P_t} \eta \right\}
 	\]
-where $P_t$ ranges over all residue disks:
+where $P_t$ ranges over all residue disks, and then solve for $z \in X(\Q_3)$ such that $\ds \int_{(0,1/2)}^z \eta= 0$. To compute these integrals, we can take $P_0$ to be a lift of some $\F_3$-point in the same residue disk as $P_t$. Then
 	\[
 	\int_{(0,1/2)}^{P_t} \eta= \underbrace{\int_{(0,1/2)}^{P_0} \eta}_{\text{Gives 3-adic}} + \underbrace{\int_{P_0}^{P_t} \eta}_{\text{Coleman 3-adic series}}
 	\]
-Lucky fact: For each residue disk, there exists $P_0 \in X(\Q)$, the 3-adic number is 0. Compute the tiny integral in each residue disk, we find each just has a simple zero at known rational point. This proves that $\#X(\Q)= 7$. 
-
-
-
-
-
-
-
+Note the first integral on the right side is some 3-adic constant, and the second is a tiny integral which was computed using a local coordinate at $P_0$. As a lucky fact, for each residue disk, there exists a rational point $P_0 \in X(\Q)$ such that the 3-adic number is 0. This forces the constant of integration to be 0 in each residue disk by the construction of the annihilating differential. Then any further computation is solely local. Computing the tiny integral in each residue disk, we find each just has a simple zero at a known rational point, and no others. But then we have
+	\[
+	X(\Q_3)_1= X(\Q)_{\text{known}}= \{ \infty, (0,\pm 1/2), (-1,\pm1/2), (1,\pm 1/20 \}
+	\]
+which proves that $\#X(\Q)= 7$. 
 
  

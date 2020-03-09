@@ -1,0 +1,179 @@
+% !TEX root = ../../../main/aws_chabauty.tex
+\newpage
+\subsection{Lecture 3}
+
+
+	\[
+	\begin{aligned}
+	h(D_1,D_2)&= \sum_v h_v(D_1,D_2) \\
+	&= \underbrace{\int_{D_2} \omega_{D_1}}_{= h_P(D_1,D_2)} + \sum_{v \neq P} h_v(D_1,D_2)
+	\end{aligned}
+	\]
+We constructed $\omega_{D_1}$ (3rd kind differentials). How do we compute Coleman integrals of differentials of the 3rd kind: $\ds \int_S^R \omega$, $\res(\omega)= (P) - (Q)$.
+
+
+\begin{enumerate}[1.]
+\item Compute $\Psi(\omega) \in H^1_\dr(X)$ by computing cup products.
+	\[
+	\Psi(\omega)= \sum \underbrace{b_i \omega_i}_{\text{solve for }b_i}
+	\]
+for $\{\omega_i\}$ a basis of $H^1_\dr$, by computing $\Psi(\omega) \smile [\omega_j]$.
+
+\item Let $\alpha:= \phi^* \omega - p\omega$. Use Frobenius equivariance to compute $\Psi(\alpha)= \phi^* \Psi(\omega) - p \Psi(\omega)$. 
+
+\item Let $\beta$ be such that $\res(\beta)= (R) - (S)$. Compute $\Psi(\beta)$. 
+
+\item Using Coleman reciprocity
+	\[
+	\int_S^R \omega= \dfrac{1}{1-p} \left( \Psi(\alpha) \smile \Psi(\beta) + \sum_{A \in X(\ov{\Qp})} \res_A \left( \alpha \int \beta - \int_{\phi(S)}^S \omega - \int_R^{\phi(R)} \omega \right) \right)
+	\]
+\end{enumerate}
+
+
+This lets us compute $h_P(D_1,D_2)$ because $h_p(D_1,D_2)= \int_{D_2} \omega_{D_1}$. What about the self-pairing of a divisor? $h_P(D,D)$? It turns out that if we consider the case of $X/\Q$ a hyperelliptic curve of odd degree model
+	\[
+	h_P(D,D)= -2 \sum_{i=0}^{g-1} \int_b^z \omega_i \ov{\omega}_i
+	\]
+where $g$ is the genus, $\omega_i= \dfrac{x^i \;dx}{2y}$, $\ov{\omega}_i$ is the dual under $U$, and $D= (\alpha) - (\infty)$. 
+
+
+Can we use this to study integral points on hyperelliptic curves? 
+
+
+
+\subsubsection{Quadratic Chabauty for Integral Points on Hyperelliptic Curves}
+
+This is work of B.-Besser-M\"uller. Let $f \in \Z[x]$ be monic, separable, and have degree $2g+1 \geq 3$. Let $U= \spec(\Z[x,y]/ \big(y^2 - f(x)\big)$. Let $X$ be the normalization of projective closure of generic fiber of $U$. Let $J$ be the Jacobian of $X$. Assume $\rank J(\Q)= g$. Suppose $\log: J(\Q) \otimes \Qp \to H^0(X_{\Qp}, \Omega^1)^*$ is an isomorphism. Let $p$ be a good prime. Then there exists $\alpha_{ij} \in \Qp$ such that
+	\[
+	p(z)= -2 \sum_{i=0}^{g-1} \int_b^z \omega_i \ov{\omega}_i - \sum_{i,j<g} \alpha_{ij} \int_\infty^z \omega_i \int_\infty^z \omega_j,
+	\]
+where $\omega_i= \dfrac{x^i\;dx}{2y}$. This takes values in an explicitly computable finite set $S \subset \Qp$ for all $z \in U(\Z)$. 
+
+
+The idea is that the global height $h= h_p + \sum_{l \neq p} h_l$, then $h - h_p= \sum_{l \neq p} h_l$ on integral points, finitely many values, and we can compute these ahead of time. Now $h= \sum \alpha_{ij} \int \omega_i \int \omega_j$, allows us to solve for $\alpha_{ij}$. 
+
+
+What goes wrong for rational points? We do not know how to control $\sum_{l \neq p} h_l$ on all rational points. Our goal is to extend QC from integral points to rational points. The problem is that we need to control local heights away from $p$. The solution is to use heights that factor through Kim's unipotent Kummer map. Can control local heights in this setting. For this, we need ``non-abelian'' height (instead of heights via the Jacobian). Use heights on Block-Kato Selmer groups.
+
+
+Let $X/\Q$ be a `nice' curve $g>1$, and $p$ a good prime. Let $V= H^1_\dr(X_{\Q})^*$. By Nakorar (1993), we have a bilinear symmetric pairing
+	\[
+	h: H_f^1(G_\Q, V) \times H_f^1(G_\Q, V^*(1)) \to \Q_p
+	\]
+where $h= \sum_v h_v$. This is equivalent to the Coleman-Gross height via an \etale Abel-Jacobi map (Besser). This height is also dependent on choices like the C-G height. 
+
+
+\begin{enumerate}[1.]
+\item the choice of an idele class character
+	\[
+	\chi: \A_\Q^*/\Q^\times \to \Qp
+	\]
+
+\item a splitting $s$ of the Hodge filtration on $V_\dr= D_\cris(V)= H_\dr^1(X_{\Qp})^*$
+\end{enumerate}
+
+
+Recall that in the Coleman-Gross height, to pair points on the Jacobian, we needed to a choice of divisors. Here ??? depends on ?? extensions: given a pair of extension classes $(c_1,c_2) \in H_f^1(G_\Q,V) \times H_f^1(G_\Q, V^*(1))$. Take representations $E_1,E_2$,
+	\[
+	\begin{tikzcd}
+	&&  0 \arrow{d} \\
+	?? \arrow{r} & E_2 \arrow{r} & V \arrow{r} \arrow{d} & 0 \\
+	&& E_1 \arrow{d} \\
+	&& \Qp \arrow{d} \\
+	&& 0
+	\end{tikzcd}
+	\]
+Filling in the diagram. 
+	\[
+	\begin{tikzcd}
+	& & 0 \arrow{d} & 0 \arrow{d} \\
+	0 \arrow{r} & \Q_p(t) \arrow{r} \arrow{d}{\sim} &  E_2 \arrow{r} \arrow{d} & V \arrow{d} \\
+	0 \arrow{r} & \Q_p(t) \arrow{r} &  E \arrow{r} \arrow{d} & E_1 \arrow{d} \\
+	& & \Q_p \arrow{r}{?} \arrow{d} & \Qp \arrow{d} \\
+	& & 0 & 0 \\
+	\end{tikzcd}
+	\]
+$E$ is a mixed extension ($G_\Q$-representations) of $E_1,E_2$ with graded pieces $\Qp$, $V$, $\Qp(1)$ with a weighted filtration $0= w_3 ES w_{-2} ES w_{-1} E S w_0 E= 0$ such that $w_{-1} E \simeq E_2$, $w_0E/w_{-2}E= E_{-1}$.
+
+
+Now let $M_\Q$ be the set of such extensions. If $v$ is prime, then $M_v$ is the set of mixed extensions of $G_v$-representations. $M_{\Q,f}$ $f$ subscript crystalline. 
+
+
+For $E \in M_{\Q,f}$, define $h_v(E)= \ov{h_v(\text{loc} E)}= h_v(\ov{E_v})$ and then define $h(e_1,e_2)= \sum_v h_v(E)$. From this point forward, we will assume that $h_l(E_l)= 0$ for all $l \neq p$, eg.. when $X$ has potential good reduction at $l$, local height $h_l= 0$.
+
+
+Definition: A filtered $\phi$-module (over $\Qp$) is a finite dimensional $\Qp$-vector space $W$, with an exhaustive and separated decreasing filtration $\Fil^1$ and an automorphism $\phi$:
+
+\begin{itemize}
+\item exhaustive $W= \cup_i \Fil^i$
+\item separated $\cap_i \Fil^i= 0$
+\item decreasing $\Fil^{i+1} \subseteq \Fil^i$
+\end{itemize}
+
+
+\begin{ex}
+\begin{enumerate}[(i)]
+\item $\Qp$ with $\Fil^0= \Qp$, $\Fil^n=0$ for all $n>0$, $\phi= \id$. 
+\item By Falting's Comparison Theorem, we have $H^1_\dr(X_{\Qp})= D_\cris(H^1_\dr(X_{\ov{\Q}}, \Q_p)$ and $H^1_\et(X_{\ov{Q}},\Q_p)$ is crystallline, take Frobenius $\phi$ on crystalline cohomology and Hodge filtration, then $H^1_\dr(X_{\Q_p})$ has the strucutre of a filtered $\phi$-module.
+
+\item $V_\dr= H^1_\dr(X_{\Qp})^*= ???$ with dual filtration and action.
+
+\item The direct sum $\Qp \oplus V \oplus \Q_p(1)$ has the structure of a filtered $\phi$-module as well. Let $E_p \in M_{p,f}$. Then $E_\dr= D_\cris(E_p)$ is a mixed extension filtered $\phi$-modules with graded pieces $\Q_p, V, \Q_p(1)$. To construct the local heights $h_p$ of $E_p$, need an explicit description of
+
+\begin{itemize}
+\item Frobenius $\phi$
+\item filtration on $E_\dr$
+\end{itemize}
+\end{enumerate}
+\end{ex}
+
+
+Want to comute $h(E)= \sum h_v(E_v)= h_p(E_p) + \slash{\sum_{l \neq p} h_v(E_R)}$.
+
+
+From Kim to Nakovar:
+
+Want maps $X(\Q) \to M_{\Q,f}$, $X(\Qp) \to M_{p,f}$, and $X(\Q_l) \to M_l$, factor through ?? Kummer map. 
+
+
+Assume in addition to $X/\Q$ with $g \geq 2$, $\rank J(\Q)= g$, $\rank NS(J) > 1$, then there exists $z \in \pic(X \times X)$ that allows us to construct a nice quotient $U= U_z$ of $U_z$. By Kim, $U_n$ is the $n$-unipotent quotient of $?_1^\et(X_\Q)$.
+
+By work of Kim, have local unipotent Kummer maps $j_{u,v}: X(\Q_v) \to H^i(G_v,U)$. We will assume that $j_{i,l}$ is trivial for all $l \neq p$. In general, by Kim-Tamagawa know that $j_{u,l}$ has finite image. * this assumption is satisfied in the case of $X$ having everywhere potentially good reduction. 
+
+
+So we have the following diagram:
+	\[
+	\begin{tikzcd}
+	X(\Q) \arrow{d}{?} \arrow{r} & X(\Q_p) \arrow{d}{j_{i,p}:= j_p} \\
+	H_f^i (G_p,U) \arrow{r} & H_f^1(G_p,U)
+	\end{tikzcd}
+	\]
+
+
+\begin{lem}
+The set $X(\Q)_U= j_p^{-1}(\text{loc}_p(H_f^1(G_p,U))$ is finite. More generally, this result is holds for $r<g+\rank Ns(T)-1$ We have $X(\Q) \subset X(\Q)_u$ and the goal is to compute $X(\Qp)_U$ using $p$-adic heights This is ``quadratic Chabauty'' for rational points. 
+\end{lem}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

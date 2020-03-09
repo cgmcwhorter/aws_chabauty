@@ -2,30 +2,25 @@
 \newpage
 \subsection{Lecture 2}
 
-Last time we gave an algorithm to compute Coleman integrals between points in different residue disks on hyperelliptic curves, i.e. curves ``analytic continuation along Frobenius.'' To do this, we wrote down an action of Frobenius $\omega_L$ residue disks and got $\phi^* w_i= dh_i + \sum M_{ji} \omega_j$, then wrote a system to produce 
+Last time we gave an algorithm to compute Coleman integrals between points in different residue disks on hyperelliptic curves, i.e. the  curves ``analytic continuation along Frobenius.'' To do this, we wrote down an action of Frobenius $\omega$ on differentials $\omega_i$, reduced to pole orders, and obtained $\phi^* w_i= dh_i + \sum M_{ji} \omega_j$, then wrote a system to produce 
 	\[
+	\left\{
 	\begin{pmatrix}
 	\vdots \\
-	\int_P^Q \omega_i \\
+	\ds \int_Q^P \omega_i \\
 	\vdots
-	\end{pmatrix}=
-	(M^t - I)^{-1} 
-	\begin{pmatrix}
-	\vdots \\
-	h_i(P) - h_i(Q) - \int_P^{\pi(P)} \omega_i - \int_{\phi(Q)}^Q \omega_i \\
-	\vdots
-	\end{pmatrix}
+	\end{pmatrix} \right\}_{i=0,\ldots,2g-1}
 	\]
 
 
-How do we do this for more general curves? We use Tuffman's algorithm: let $X/\Q$ be a `nice' curve of genus $g$ with a plane model $Q(x,y)= y^{d_x} + Q_{d_x-1} y^{d_x-1} + \cdots + Q_0= 0$ such that $Q(x,y)$ is irreducible, $Q_i(x) \in \Z[x]$. Let $p$ be a good prime for $X$.
+How do we do this for more general curves? We use Tuitman's algorithm, showing how it can be used to compute Coleman integrals for place curves. Let $X/\Q$ be a `nice' curve of genus $g$ with a plane model $Q(x,y)= y^{d_x} + Q_{d_x-1} y^{d_x-1} + \cdots + Q_0= 0$ such that $Q(x,y)$ is irreducible, $Q_i(x) \in \Z[x]$. Let $p$ be a good prime for $X$.
 
 
 \begin{enumerate}[1.]
 \item Consider the map $x: X \to \P^1$ and remove the ramification locus $r(x)$, analogous to removing Weierstrass points in Kedlaya's algorithm. 
 \item Choose a lift of Frobenius with $x \mapsto x^p$. Compute the image of $y$ through Hensel lifting. 
 \item Compute a basis of $H_{\dr}^1(X)$ using an integral basis of $\Q(X)$ over $\Q[X]$, $\Q[\frac{1}{x}]$.
-\item Compute the action of Frobenius on differentials and reduce pole orders using relations in cohomology via Louder's fibration algorithm---Tuffman uses an integral basis of $\Q(X)$. 
+\item Compute the action of Frobenius on differentials and reduce pole orders using relations in cohomology via Louder's fibration algorithm---Tuitman uses an integral basis of $\Q(X)$. 
 \end{enumerate}
 
 
@@ -39,7 +34,7 @@ Then $\phi^*\omega_i= dh_i + \sum M_{ji} \omega_j$. Use this to give a lih syste
 	\]
 
 
-\begin{ex}[B-Tuffman]
+\begin{ex}[B-Tuitman]
 Can compute Coleman integrals on a non-hyperelliptic genus 55 curve to show its Jacobian has rank $\geq 1$.
 \end{ex}
 
@@ -55,7 +50,7 @@ We will often suppress writing the iterated integral and instead write a single 
 These integrals play an important role in nonabelian Chabauty.
 
 
-How do we compute these integrals? We want to apply an algorithm for computing the action of Frobenius on $p$-adic cohomology, e.g. Kedlaya or Tuffman, to produce
+How do we compute these integrals? We want to apply an algorithm for computing the action of Frobenius on $p$-adic cohomology, e.g. Kedlaya or Tuitman, to produce
 	\[
 	\phi^* \omega_i= dh_i + \sum M_{ji} \omega_j
 	\]
