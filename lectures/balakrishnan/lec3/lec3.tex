@@ -2,101 +2,108 @@
 \newpage
 \subsection{Lecture 3}
 
-
+We wanted to compute heights on the Jacobian. In the end, we wanted to pair two divisors, $D_1, D_2$, degree 0, and we knew that the global $p$-adic height was a sum of local $p$-adic heights. We know also that the local height at $p$ was $\ds \int_{D_2} \omega_{D_1}$. Then we have
 	\[
 	\begin{aligned}
 	h(D_1,D_2)&= \sum_v h_v(D_1,D_2) \\
-	&= \underbrace{\int_{D_2} \omega_{D_1}}_{= h_P(D_1,D_2)} + \sum_{v \neq P} h_v(D_1,D_2)
+	&= \underbrace{\int_{D_2} \omega_{D_1}}_{h_P(D_1,D_2)} + \sum_{v \neq p} h_v(D_1,D_2)
 	\end{aligned}
-	\]
-We constructed $\omega_{D_1}$ (3rd kind differentials). How do we compute Coleman integrals of differentials of the 3rd kind: $\ds \int_S^R \omega$, $\res(\omega)= (P) - (Q)$.
+	\] 
+We constructed a normalized differential of the third kind, $\omega_{D_1}$. How do we compute Coleman integrals of differentials of the third kind, i.e. how do we compute $\ds \int_S^R \omega$, where $\res(\omega)= (P) - (Q)$.
 
 
+\noindent\makebox[\textwidth][c]{%
+\begin{minipage}{0.90\textwidth}
 \begin{enumerate}[1.]
-\item Compute $\Psi(\omega) \in H^1_\dr(X)$ by computing cup products.
+\item Compute $\Psi(\omega) \in H^1_\dr(X)$ by computing cup products using Serre's cup product formula; that is, suppose
 	\[
-	\Psi(\omega)= \sum \underbrace{b_i \omega_i}_{\text{solve for }b_i}
+	\Psi(\omega)= \sum_{i=0}^{2g-1} \underbrace{b_i [\omega_i]}_{\text{solve for }b_i}
 	\]
-for $\{\omega_i\}$ a basis of $H^1_\dr$, by computing $\Psi(\omega) \smile [\omega_j]$.
+where $\{\omega_i\}$ is a basis of $H^1_\dr$. Take cup products $\Psi(\omega) \smile [\omega_i]$ for all $i$ to solve for the coefficients $b_i$ by computing residues.  
 
-\item Let $\alpha:= \phi^* \omega - p\omega$. Use Frobenius equivariance to compute $\Psi(\alpha)= \phi^* \Psi(\omega) - p \Psi(\omega)$. 
+\item Let $\alpha:= \phi^* \omega - p\omega$. Using Frobenius equivariance, compute $\Psi(\alpha)= \phi^* \Psi(\omega) - p \Psi(\omega)$. 
 
-\item Let $\beta$ be such that $\res(\beta)= (R) - (S)$. Compute $\Psi(\beta)$. 
+\item Let $\beta$ be a 1-form such that $\res(\beta)= (R) - (S)$, and compute $\Psi(\beta)$. [Note, these are elements in $H_\dr^1(X)$, which we have computed.]
 
-\item Using Coleman reciprocity
+\item Using Coleman reciprocity, we have 
 	\[
-	\int_S^R \omega= \dfrac{1}{1-p} \left( \Psi(\alpha) \smile \Psi(\beta) + \sum_{A \in X(\ov{\Qp})} \res_A \left( \alpha \int \beta - \int_{\phi(S)}^S \omega - \int_R^{\phi(R)} \omega \right) \right)
+	\int_S^R \omega= \dfrac{1}{1-p} \left( \Psi(\alpha) \smile \Psi(\beta) + \sum_{A \in X(\C_p)} \res_A \left( \alpha \int \beta \right) - \int_{\phi(S)}^S \omega - \int_R^{\phi(R)} \omega \right)
 	\]
+Note that the integrals on the right are tiny integrals. 
 \end{enumerate}
+\end{minipage}%
+} \par\vspace{\baselineskip}
 
 
-This lets us compute $h_P(D_1,D_2)$ because $h_p(D_1,D_2)= \int_{D_2} \omega_{D_1}$. What about the self-pairing of a divisor? $h_P(D,D)$? It turns out that if we consider the case of $X/\Q$ a hyperelliptic curve of odd degree model
+Notice that we introduce an auxiliary differential $\alpha$, which was the pullback of Frobenius on $\omega$ subtracted by $p\omega$. This almost makes the algorithm `worse' in order to make the algorithm `better' in the end. This is because we start off with the differential of the third kind $\omega$ and then pull back introducing worse poles. The point is that within each annulus $\alpha$ is essentially of the second kind, i.e. the sum of residues of $\alpha$ in each annulus is 0. This saves a constant of integration in each term in the summation.  
+
+
+This algorithm lets us compute the local height $h_P(D_1,D_2)$, where $D_1,D_2 \in \div^0(X)$ with disjoint support, because $h_p(D_1,D_2)= \int_{D_2} \omega_{D_1}$. What about the self-pairing of a divisor, i.e. $h_P(D,D)$? It turns out that if we consider the case of $X/\Q$ a hyperelliptic curve with odd degree model,
 	\[
 	h_P(D,D)= -2 \sum_{i=0}^{g-1} \int_b^z \omega_i \ov{\omega}_i
 	\]
-where $g$ is the genus, $\omega_i= \dfrac{x^i \;dx}{2y}$, $\ov{\omega}_i$ is the dual under $U$, and $D= (\alpha) - (\infty)$. 
-
-
-Can we use this to study integral points on hyperelliptic curves? 
+when $D= (z) - (\infty)$, where $g$ is the genus, $b$ is a tangential base point at $\infty$, $\omega_i= \dfrac{x^i \;dx}{2y}$, $\ov{\omega}_i$ is the dual under the cup product. Can we use this to study integral points on hyperelliptic curves? 
 
 
 
+% Quadratic Chabauty for Integral Points on Hyperelliptic Curves
 \subsubsection{Quadratic Chabauty for Integral Points on Hyperelliptic Curves}
 
-This is work of B.-Besser-M\"uller. Let $f \in \Z[x]$ be monic, separable, and have degree $2g+1 \geq 3$. Let $U= \spec(\Z[x,y]/ \big(y^2 - f(x)\big)$. Let $X$ be the normalization of projective closure of generic fiber of $U$. Let $J$ be the Jacobian of $X$. Assume $\rank J(\Q)= g$. Suppose $\log: J(\Q) \otimes \Qp \to H^0(X_{\Qp}, \Omega^1)^*$ is an isomorphism. Let $p$ be a good prime. Then there exists $\alpha_{ij} \in \Qp$ such that
+This is work of Balakrishnan-Besser-M\"uller. Let $f \in \Z[x]$ be a monic, separable polynomial with degree $2g+1 \geq 3$. Let $\cU= \spec(\Z[x,y]/ \big(y^2 - f(x)\big)$. Let $X$ be the normalization of the projective closure of the generic fiber of $U$, and let $J$ be the Jacobian of $X$. Assume $\rank J(\Q)= g$. Suppose $\log: J(\Q) \otimes \Qp \to H^0(X_{\Qp}, \Omega^1)^*$ is an isomorphism.\footnote{If this does not hold, one can use Chabauty-Coleman to compute the rational points.} Let $p$ be a prime of good reduction. Then there exists explicitly computable constants $\alpha_{ij} \in \Qp$ such that
 	\[
-	p(z)= -2 \sum_{i=0}^{g-1} \int_b^z \omega_i \ov{\omega}_i - \sum_{i,j<g} \alpha_{ij} \int_\infty^z \omega_i \int_\infty^z \omega_j,
+	\rho(z)= -2 \sum_{i=0}^{g-1} \int_b^z \omega_i \ov{\omega}_i - \sum_{i,j<g} \alpha_{ij} \int_\infty^z \omega_i \int_\infty^z \omega_j,
 	\]
-where $\omega_i= \dfrac{x^i\;dx}{2y}$. This takes values in an explicitly computable finite set $S \subset \Qp$ for all $z \in U(\Z)$. 
+takes values in an explicitly computable finite set $S \subset \Qp$ for all $z \in \cU(\Z)$, where have taken $\omega_i= \dfrac{x^i\;dx}{2y}$ in the expression above
 
 
 The idea is that the global height $h= h_p + \sum_{l \neq p} h_l$, then $h - h_p= \sum_{l \neq p} h_l$ on integral points, finitely many values, and we can compute these ahead of time. Now $h= \sum \alpha_{ij} \int \omega_i \int \omega_j$, allows us to solve for $\alpha_{ij}$. 
 
 
-What goes wrong for rational points? We do not know how to control $\sum_{l \neq p} h_l$ on all rational points. Our goal is to extend QC from integral points to rational points. The problem is that we need to control local heights away from $p$. The solution is to use heights that factor through Kim's unipotent Kummer map. Can control local heights in this setting. For this, we need ``non-abelian'' height (instead of heights via the Jacobian). Use heights on Block-Kato Selmer groups.
+What goes wrong for rational points? We do not know how to control $\sum_{l \neq p} h_l$ on all rational points. Our goal is to extend quadratic Chabauty from integral points to rational points. The problem is that we need to control local heights away from $p$. The solution is to use heights that factor through Kim's unipotent Kummer map, where we can control local heights in this setting. For this, we need ``non-abelian'' heights (instead of heights via the Jacobian). We use heights on Bloch-Kato Selmer groups.
 
 
-Let $X/\Q$ be a `nice' curve $g>1$, and $p$ a good prime. Let $V= H^1_\dr(X_{\Q})^*$. By Nakorar (1993), we have a bilinear symmetric pairing
+Let $X/\Q$ be a `nice' curve with $g>1$, and suppose $p$ a prime of good reduction. Let $V= H^1_\dr(X_{\Q})^*$. By Nekovar (1993), we have a bilinear symmetric pairing on Bloch-Kato Selmer groups
 	\[
-	h: H_f^1(G_\Q, V) \times H_f^1(G_\Q, V^*(1)) \to \Q_p
+	h: H_f^1(G_\Q, V) \times H_f^1(G_\Q, V^*(1)) \to \Qp
 	\]
-where $h= \sum_v h_v$. This is equivalent to the Coleman-Gross height via an \etale Abel-Jacobi map (Besser). This height is also dependent on choices like the C-G height. 
+where $h= \sum_v h_v$. This is equivalent to the Coleman-Gross height via an \etale Abel-Jacobi map (Besser). This height is also dependent on choices just like in the Coleman-Gross height. Specifically, the global $p$-adic height $h$ above depends only on
 
 
 \begin{enumerate}[1.]
-\item the choice of an idele class character
+\item the choice of an \idele class character
 	\[
-	\chi: \A_\Q^*/\Q^\times \to \Qp
+	\chi: \A_\Q^\times/\Q^\times \to \Qp
 	\]
 
 \item a splitting $s$ of the Hodge filtration on $V_\dr= D_\cris(V)= H_\dr^1(X_{\Qp})^*$
 \end{enumerate}
 
 
-Recall that in the Coleman-Gross height, to pair points on the Jacobian, we needed to a choice of divisors. Here ??? depends on ?? extensions: given a pair of extension classes $(c_1,c_2) \in H_f^1(G_\Q,V) \times H_f^1(G_\Q, V^*(1))$. Take representations $E_1,E_2$,
+Recall that in the Coleman-Gross height, to pair points on the Jacobian, we needed to a choice of divisors. Here the choice depends on mixed extensions: given a pair of extension classes $(c_1,c_2) \in H_f^1(G_\Q,V) \times H_f^1(G_\Q, V^*(1))$, take representations $E_1,E_2$,
 	\[
 	\begin{tikzcd}
-	&&  0 \arrow{d} \\
-	?? \arrow{r} & E_2 \arrow{r} & V \arrow{r} \arrow{d} & 0 \\
-	&& E_1 \arrow{d} \\
-	&& \Qp \arrow{d} \\
-	&& 0
+	&&&  0 \arrow{d} \\
+	0 \arrow{r} & \Qp(1) \arrow{r} & E_2 \arrow{r} & V \arrow{r} \arrow{d} & 0 \\
+	&&& E_1 \arrow{d} \\
+	&&& \Qp \arrow{d} \\
+	&&& 0
 	\end{tikzcd}
 	\]
-Filling in the diagram. 
+filling in the diagram,
 	\[
 	\begin{tikzcd}
 	& & 0 \arrow{d} & 0 \arrow{d} \\
-	0 \arrow{r} & \Q_p(t) \arrow{r} \arrow{d}{\sim} &  E_2 \arrow{r} \arrow{d} & V \arrow{d} \\
-	0 \arrow{r} & \Q_p(t) \arrow{r} &  E \arrow{r} \arrow{d} & E_1 \arrow{d} \\
-	& & \Q_p \arrow{r}{?} \arrow{d} & \Qp \arrow{d} \\
+	0 \arrow{r} & \Qp(1) \arrow{r} \arrow{d}{\rotatebox{90}{$=$}} &  E_2 \arrow{r} \arrow{d} & V \arrow{d} \\
+	0 \arrow{r} & \Qp(1) \arrow{r} &  E \arrow{r} \arrow{d} & E_1 \arrow{d} \\
+	& & \Qp \arrow{r}{=} \arrow{d} & \Qp \arrow{d} \\
 	& & 0 & 0 \\
 	\end{tikzcd}
 	\]
-$E$ is a mixed extension ($G_\Q$-representations) of $E_1,E_2$ with graded pieces $\Qp$, $V$, $\Qp(1)$ with a weighted filtration $0= w_3 ES w_{-2} ES w_{-1} E S w_0 E= 0$ such that $w_{-1} E \simeq E_2$, $w_0E/w_{-2}E= E_{-1}$.
-
-
-Now let $M_\Q$ be the set of such extensions. If $v$ is prime, then $M_v$ is the set of mixed extensions of $G_v$-representations. $M_{\Q,f}$ $f$ subscript crystalline. 
+$E$ is a mixed extension ($G_\Q$-representations) of $E_1,E_2$ with graded pieces $\Qp$, $V$, $\Qp(1)$ with a weighted filtration 
+	\[
+	0= W_{-3}E \subseteq W_{-2} E \subseteq W_{-1} E \subseteq W_0 E= E
+	\] 
+such that $W_{-1} E \simeq E_2$ and $W_0 E/W_{-2}E= E_{-1}$. Now let $M_\Q$ be the set of such extensions. If $v$ is prime, then $M_v$ is the set of mixed extensions of $G_v$-representations. $M_{\Q,f}$ $f$ subscript crystalline. 
 
 
 For $E \in M_{\Q,f}$, define $h_v(E)= \ov{h_v(\text{loc} E)}= h_v(\ov{E_v})$ and then define $h(e_1,e_2)= \sum_v h_v(E)$. From this point forward, we will assume that $h_l(E_l)= 0$ for all $l \neq p$, eg.. when $X$ has potential good reduction at $l$, local height $h_l= 0$.
@@ -111,14 +118,14 @@ Definition: A filtered $\phi$-module (over $\Qp$) is a finite dimensional $\Qp$-
 \end{itemize}
 
 
-\begin{ex}
+\begin{ex} \hfill\par
 \begin{enumerate}[(i)]
 \item $\Qp$ with $\Fil^0= \Qp$, $\Fil^n=0$ for all $n>0$, $\phi= \id$. 
-\item By Falting's Comparison Theorem, we have $H^1_\dr(X_{\Qp})= D_\cris(H^1_\dr(X_{\ov{\Q}}, \Q_p)$ and $H^1_\et(X_{\ov{Q}},\Q_p)$ is crystallline, take Frobenius $\phi$ on crystalline cohomology and Hodge filtration, then $H^1_\dr(X_{\Q_p})$ has the strucutre of a filtered $\phi$-module.
+\item By Falting's Comparison Theorem, we have $H^1_\dr(X_{\Qp})= D_\cris(H^1_\dr(X_{\ov{\Q}}, \Qp)$ and $H^1_\et(X_{\ov{Q}},\Qp)$ is crystallline, take Frobenius $\phi$ on crystalline cohomology and Hodge filtration, then $H^1_\dr(X_{\Qp})$ has the strucutre of a filtered $\phi$-module.
 
 \item $V_\dr= H^1_\dr(X_{\Qp})^*= ???$ with dual filtration and action.
 
-\item The direct sum $\Qp \oplus V \oplus \Q_p(1)$ has the structure of a filtered $\phi$-module as well. Let $E_p \in M_{p,f}$. Then $E_\dr= D_\cris(E_p)$ is a mixed extension filtered $\phi$-modules with graded pieces $\Q_p, V, \Q_p(1)$. To construct the local heights $h_p$ of $E_p$, need an explicit description of
+\item The direct sum $\Qp \oplus V \oplus \Qp(1)$ has the structure of a filtered $\phi$-module as well. Let $E_p \in M_{p,f}$. Then $E_\dr= D_\cris(E_p)$ is a mixed extension filtered $\phi$-modules with graded pieces $\Qp, V, \Qp(1)$. To construct the local heights $h_p$ of $E_p$, need an explicit description of
 
 \begin{itemize}
 \item Frobenius $\phi$
@@ -144,7 +151,7 @@ By work of Kim, have local unipotent Kummer maps $j_{u,v}: X(\Q_v) \to H^i(G_v,U
 So we have the following diagram:
 	\[
 	\begin{tikzcd}
-	X(\Q) \arrow{d}{?} \arrow{r} & X(\Q_p) \arrow{d}{j_{i,p}:= j_p} \\
+	X(\Q) \arrow{d}{?} \arrow{r} & X(\Qp) \arrow{d}{j_{i,p}:= j_p} \\
 	H_f^i (G_p,U) \arrow{r} & H_f^1(G_p,U)
 	\end{tikzcd}
 	\]
