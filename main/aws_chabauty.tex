@@ -2,7 +2,7 @@
 \usepackage[tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in]{geometry}
 \usepackage{../style/packages}
 \usepackage{../style/commands}
-\setbool{noteonly}{false}
+\setbool{notesonly}{false}
 
 % -------------------
 % Content
@@ -34,15 +34,6 @@
 \input{../lectures/poonen/lec1/lec1}
 \input{../lectures/poonen/lec2/lec2}
 
-% Zureick-Brown
-\input{../lectures/zb/lec1/lec1}
-\input{../lectures/zb/lec2/lec2}
-\input{../lectures/zb/lec3/lec3}
-\input{../lectures/zb/lec4/lec4}
-
-% Kim
-\input{../lectures/kim/lec1-4}
-
 % Balakrishnan
 \input{../lectures/balakrishnan/lec1/lec1}
 \input{../lectures/balakrishnan/lec2/lec2}
@@ -55,11 +46,20 @@
 \input{../lectures/edixhoven/lec3/lec3}
 \input{../lectures/edixhoven/lec4/lec4}
 
+% Kim
+\input{../lectures/kim/lec1-4}
+
+% Zureick-Brown
+\input{../lectures/zb/lec1/lec1}
+\input{../lectures/zb/lec2/lec2}
+\input{../lectures/zb/lec3/lec3}
+\input{../lectures/zb/lec4/lec4}
+
 
 % -------------------
 % Course/Project Outlines
 % -------------------
-\ifbool{noteonly}{}{%
+\ifbool{notesonly}{}{%
 \newpage
 \thispagestyle{empty}
 \part{Course/Project Outlines \& Lecture Notes}
@@ -76,27 +76,40 @@
 \addcontentsline{toc}{subsection}{\protect\numberline{\thesubsection} Lecture Notes}
 \includepdf[pages=-,scale=1,pagecommand={\thispagestyle{normal}}]{../notes/poonen/p-adic_approach.pdf}
 
-% Zureick-Brown
+% Balakrishnan
 \phantomsection
 \addtocounter{section}{1}
-\addcontentsline{toc}{section}{\protect\numberline{\thesection} David Zureick-Brown}
+\addcontentsline{toc}{section}{\protect\numberline{\thesection} Jennifer Balakrishnan: Computational tools for quadratic Chabauty}
 \phantomsection
 \setcounter{subsection}{1}
 \addcontentsline{toc}{subsection}{\protect\numberline{\thesubsection} Course \& Project Outline}
-\includepdf[pages=-,scale=1,pagecommand={\thispagestyle{normal}}]{../notes/zb/2020ZureickBrownOutline.pdf}
+\includepdf[pages=-,scale=1,pagecommand={\thispagestyle{normal}}]{../notes/balakrishnan/2020BalakrishnanOutline.pdf}
 \phantomsection
 \addtocounter{subsection}{1}
-\addcontentsline{toc}{subsection}{\protect\numberline{\thesubsection} Lecture Notes}
-\includepdf[pages=-,scale=1,pagecommand={\thispagestyle{normal}}]{../notes/zb/2020ZureickBrownNotes.pdf}
+\addcontentsline{toc}{subsection}{\protect\numberline{\thesubsection} Lecture Notes \& Project Descriptions (with J. Steffen M\"uller}
+\includepdf[pages=-]{../notes/balakrishnan/2020BalakrishnanMuellerNotes.pdf}
+
+% Edixhoven
+\phantomsection
+\addtocounter{section}{1}
+\addcontentsline{toc}{section}{\protect\numberline{\thesection} Bas Edixhoven: Geometric Quadratic Chabauty}
+\phantomsection
+\setcounter{subsection}{1}
+\addcontentsline{toc}{subsection}{\protect\numberline{\thesubsection}  Course \& Project Outline}
+\includepdf[pages=-,scale=1,pagecommand={\thispagestyle{normal}}]{../notes/edixhoven/2020EdixhovenOutline.pdf}
+\phantomsection
+\addtocounter{subsection}{1}
+\addcontentsline{toc}{subsection}{\protect\numberline{\thesubsection} Lecture Notes (Prepreint of Edixhoven and Lido)}
+\includepdf[pages=-,scale=1,pagecommand={\thispagestyle{normal}}]{../notes/edixhoven/1910-10752.pdf}
 \phantomsection
 \addtocounter{subsection}{1}
 \addcontentsline{toc}{subsection}{\protect\numberline{\thesubsection} Project Description}
-\includepdf[pages=-,scale=1,pagecommand={\thispagestyle{normal}}]{../notes/zb/2020ZureickBrownProjectNotes.pdf}
+\includepdf[pages=-,scale=1,pagecommand={\thispagestyle{normal}}]{../notes/edixhoven/2020EdixhovenProject.pdf}
 
 % Kim
 \phantomsection
 \addtocounter{section}{1}
-\addcontentsline{toc}{section}{\protect\numberline{\thesection} Minhyong Kim}
+\addcontentsline{toc}{section}{\protect\numberline{\thesection} Minhyong Kim: Foundations of nonabelian Chabauty}
 \phantomsection
 \setcounter{subsection}{1}
 \addcontentsline{toc}{subsection}{\protect\numberline{\thesubsection} Course \& Project Outline}
@@ -122,36 +135,22 @@
 \addcontentsline{toc}{subsection}{\protect\numberline{\thesubsection} Lecture 4}
 \includepdf[pages=-,scale=1,pagecommand={\thispagestyle{normal}}]{../notes/kim/2020KimNotes4.pdf}
 
-% Balakrishnan
+% Zureick-Brown
 \phantomsection
 \addtocounter{section}{1}
-\addcontentsline{toc}{section}{\protect\numberline{\thesection} Jennifer Balakrishnan}
+\addcontentsline{toc}{section}{\protect\numberline{\thesection} David Zureick-Brown: Classical Chabauty}
 \phantomsection
 \setcounter{subsection}{1}
 \addcontentsline{toc}{subsection}{\protect\numberline{\thesubsection} Course \& Project Outline}
-\includepdf[pages=-,scale=1,pagecommand={\thispagestyle{normal}}]{../notes/balakrishnan/2020BalakrishnanOutline.pdf}
+\includepdf[pages=-,scale=1,pagecommand={\thispagestyle{normal}}]{../notes/zb/2020ZureickBrownOutline.pdf}
 \phantomsection
 \addtocounter{subsection}{1}
-\addcontentsline{toc}{subsection}{\protect\numberline{\thesubsection} Lecture Notes \& Project Descriptions (with J. Steffen M\"uller}
-\includepdf[pages=-]{../notes/balakrishnan/2020BalakrishnanMuellerNotes.pdf}
-
-% Edixhoven
-\phantomsection
-\addtocounter{section}{1}
-\addcontentsline{toc}{section}{\protect\numberline{\thesection} Bas Edixhoven}
-\phantomsection
-\setcounter{subsection}{1}
-\addcontentsline{toc}{subsection}{\protect\numberline{\thesubsection}  Course \& Project Outline}
-\includepdf[pages=-,scale=1,pagecommand={\thispagestyle{normal}}]{../notes/edixhoven/2020EdixhovenOutline.pdf}
-\phantomsection
-\addtocounter{subsection}{1}
-\addcontentsline{toc}{subsection}{\protect\numberline{\thesubsection} Lecture Notes (Prepreint of Edixhoven and Lido)}
-\includepdf[pages=-,scale=1,pagecommand={\thispagestyle{normal}}]{../notes/edixhoven/1910-10752.pdf}
+\addcontentsline{toc}{subsection}{\protect\numberline{\thesubsection} Lecture Notes}
+\includepdf[pages=-,scale=1,pagecommand={\thispagestyle{normal}}]{../notes/zb/2020ZureickBrownNotes.pdf}
 \phantomsection
 \addtocounter{subsection}{1}
 \addcontentsline{toc}{subsection}{\protect\numberline{\thesubsection} Project Description}
-\includepdf[pages=-,scale=1,pagecommand={\thispagestyle{normal}}]{../notes/edixhoven/2020EdixhovenProject.pdf}
-
+\includepdf[pages=-,scale=1,pagecommand={\thispagestyle{normal}}]{../notes/zb/2020ZureickBrownProjectNotes.pdf}
 
 % Problem Groups
 \phantomsection
